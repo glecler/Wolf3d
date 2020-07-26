@@ -113,11 +113,11 @@ $(NAME):
 	@echo "$(GREEN)[✓] libft compiled$(END)"
 
 clean :
-	@rm -f $(OBJS)
+	@rm -rf $(OBJS)
 	@echo "$(RED)[-] Objects of $(NAME) cleaned$(END)"
 
 fclean : clean
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 	@echo "$(RED)[-] libft cleaned$(END)"
 
 re : fclean all

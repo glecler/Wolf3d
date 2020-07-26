@@ -17,13 +17,13 @@ int		ft_put_pixel_img(t_var *var, int x, int y, unsigned char *rgb)
 	char	*cpy;
 
 	cpy = var->mlx.img_addr;
-    if (rgb == 0)
-        return(0);
+	if (rgb == 0)
+		return(0);
 	var->mlx.img_addr += y * var->mlx.size_line + x * 4;
 	*(var->mlx.img_addr) = rgb[0];
-    *(var->mlx.img_addr + 1) = rgb[1];
-    *(var->mlx.img_addr + 2) = rgb[2];
-    var->mlx.img_addr = cpy;
+	*(var->mlx.img_addr + 1) = rgb[1];
+	*(var->mlx.img_addr + 2) = rgb[2];
+	var->mlx.img_addr = cpy;
 	return (1);
 }
 
@@ -31,8 +31,8 @@ int		ft_get_rgb_from_img(t_mlx_img mlx_img, int x, int y, unsigned char *rgb)
 {
 	mlx_img.img_addr += y * BSI * 4 + x * 4;
 	rgb[0] = *(mlx_img.img_addr);
-    rgb[1] = *(mlx_img.img_addr + 1);
-    rgb[2] = *(mlx_img.img_addr + 2);
+	rgb[1] = *(mlx_img.img_addr + 1);
+	rgb[2] = *(mlx_img.img_addr + 2);
 	return (1);
 }
 

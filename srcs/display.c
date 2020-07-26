@@ -32,7 +32,7 @@ void	ft_display(t_var *var, t_player *pl)
 	mlx_mouse_hook(var->mlx.win_ptr, ft_get_mouse, &hook_param);
 	mlx_hook(var->mlx.win_ptr, 2, (1L << 0), ft_get_key, &hook_param);
 	mlx_hook(var->mlx.win_ptr, 3, (1L << 1), ft_get_key_release, &hook_param);
-	mlx_hook(var->mlx.win_ptr, 6, 0, &ft_get_motion, &hook_param);
+	mlx_hook(var->mlx.win_ptr, 6, 0L, &ft_get_motion, &hook_param);
 	mlx_hook(var->mlx.win_ptr, 17, 0L, ft_exit_hook, &hook_param);
 	mlx_loop_hook(var->mlx.mlx_ptr, &ft_play, &hook_param);
 	mlx_loop(var->mlx.mlx_ptr);
