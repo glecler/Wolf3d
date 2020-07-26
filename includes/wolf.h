@@ -146,9 +146,10 @@ void			ft_is_first_char_zero(char *str);
 ** tools.c
 */
 
-void			ft_set_x_y_4(int *x_y, int x, int y, int a, int b);
+void			ft_set_x_y(int *x_y, int x, int y);
 void			ft_init_inter_variables(t_inter *inter, t_player *player);
 void			ft_init_a_b_alpha(t_pos *a, t_pos *b, double *alpha);
+void			ft_motion_menu_zero(int x, int y, t_hook_param *hook_param);
 
 /*
 ** display_tool_2.c

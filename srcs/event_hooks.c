@@ -90,14 +90,7 @@ int		ft_get_motion(int x, int y, void *param)
 				ft_mlx_img_dimensions(180, 320, 600, 50));
 	}
 	else
-	{
-		if (x >= 750 && x <= 929 && y >= 30 && y <= 80)
-			ft_put_image(hook_param->var, hook_param->textures.menu_blanc,
-				ft_mlx_img_dimensions(750, 30, 179, 50));
-		else
-			ft_put_image(hook_param->var, hook_param->textures.menu,
-				ft_mlx_img_dimensions(750, 30, 179, 50));
-	}
+		ft_motion_menu_zero(x, y, hook_param);
 	mlx_put_image_to_window(hook_param->var->mlx.mlx_ptr,
 		hook_param->var->mlx.win_ptr, hook_param->var->mlx.img_ptr, 0, 0);
 	return (0);

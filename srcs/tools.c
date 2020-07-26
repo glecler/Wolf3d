@@ -12,12 +12,10 @@
 
 #include "../includes/wolf.h"
 
-void	ft_set_x_y_4(int *x_y, int x, int y, int a, int b)
+void	ft_set_x_y(int *x_y, int x, int y)
 {
 	x_y[0] = x;
 	x_y[1] = y;
-	x_y[2] = a;
-	x_y[3] = b;
 }
 
 void	ft_init_inter_variables(t_inter *inter, t_player *player)
@@ -43,6 +41,17 @@ void	ft_init_a_b_alpha(t_pos *a, t_pos *b, double *alpha)
 	b->x = 10000;
 	b->y = 10000;
 	*alpha = *alpha * RAD;
+}
+
+
+void	ft_motion_menu_zero(int x, int y, t_hook_param *hook_param)
+{
+	if (x >= 750 && x <= 929 && y >= 30 && y <= 80)
+		ft_put_image(hook_param->var, hook_param->textures.menu_blanc,
+			ft_mlx_img_dimensions(750, 30, 179, 50));
+	else
+		ft_put_image(hook_param->var, hook_param->textures.menu,
+			ft_mlx_img_dimensions(750, 30, 179, 50));
 }
 
 void	ft_error(int error_code)
