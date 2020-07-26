@@ -27,7 +27,7 @@ int		ft_get_key(int key, t_hook_param *hook_param)
 		else if (key == LEFT)
 			hook_param->var->key.left = 1;
 	}
-	return(0);
+	return (0);
 }
 
 int		ft_get_key_release(int key, t_hook_param *hook_param)
@@ -51,14 +51,17 @@ int		ft_get_mouse(int button, int x, int y, void *param)
 	t_hook_param *hook_param;
 
 	hook_param = param;
-	if (x >= 180 && x <= 780 && y >= 260 && y <= 310 && button == 1 && hook_param->var->menu == 1)
+	if (x >= 180 && x <= 780 && y >= 260 && y <= 310 && button == 1
+		&& hook_param->var->menu == 1)
 	{
 		hook_param->var->menu = 0;
 		return (0);
 	}
-	if (x >= 180 && x <= 780 && y >= 320 && y <= 370 && button == 1 && hook_param->var->menu == 1)
+	if (x >= 180 && x <= 780 && y >= 320 && y <= 370 && button == 1
+		&& hook_param->var->menu == 1)
 		ft_clean_quit(hook_param->textures, hook_param->var, hook_param->pl);
-	if (x >= 750 && x <= 929 && y >= 30 && y <= 80 && button == 1 && hook_param->var->menu == 0)
+	if (x >= 750 && x <= 929 && y >= 30 && y <= 80 && button == 1
+		&& hook_param->var->menu == 0)
 	{
 		hook_param->var->menu = 1;
 		ft_menu(hook_param->var, hook_param->textures);
@@ -66,7 +69,7 @@ int		ft_get_mouse(int button, int x, int y, void *param)
 	return (0);
 }
 
-int     ft_get_motion(int x, int y, void *param)
+int		ft_get_motion(int x, int y, void *param)
 {
 	t_hook_param *hook_param;
 
@@ -74,26 +77,33 @@ int     ft_get_motion(int x, int y, void *param)
 	if (hook_param->var->menu == 1)
 	{
 		if (x >= 180 && x <= 780 && y >= 260 && y <= 310)
-			ft_put_image(hook_param->var, hook_param->textures.jouer_blanc, ft_mlx_img_dimensions(180, 260, 600, 50));
+			ft_put_image(hook_param->var, hook_param->textures.jouer_blanc,
+				ft_mlx_img_dimensions(180, 260, 600, 50));
 		else
-			ft_put_image(hook_param->var, hook_param->textures.jouer, ft_mlx_img_dimensions(180, 260, 600, 50));
+			ft_put_image(hook_param->var, hook_param->textures.jouer,
+				ft_mlx_img_dimensions(180, 260, 600, 50));
 		if (x >= 180 && x <= 780 && y >= 320 && y <= 370)
-			ft_put_image(hook_param->var, hook_param->textures.quitter_blanc, ft_mlx_img_dimensions(180, 320, 600, 50));
+			ft_put_image(hook_param->var, hook_param->textures.quitter_blanc,
+				ft_mlx_img_dimensions(180, 320, 600, 50));
 		else
-			ft_put_image(hook_param->var, hook_param->textures.quitter, ft_mlx_img_dimensions(180, 320, 600, 50));
+			ft_put_image(hook_param->var, hook_param->textures.quitter,
+				ft_mlx_img_dimensions(180, 320, 600, 50));
 	}
 	else
 	{
 		if (x >= 750 && x <= 929 && y >= 30 && y <= 80)
-			ft_put_image(hook_param->var, hook_param->textures.menu_blanc, ft_mlx_img_dimensions(750, 30, 179, 50));
+			ft_put_image(hook_param->var, hook_param->textures.menu_blanc,
+				ft_mlx_img_dimensions(750, 30, 179, 50));
 		else
-			ft_put_image(hook_param->var, hook_param->textures.menu, ft_mlx_img_dimensions(750, 30, 179, 50));
+			ft_put_image(hook_param->var, hook_param->textures.menu,
+				ft_mlx_img_dimensions(750, 30, 179, 50));
 	}
-	mlx_put_image_to_window(hook_param->var->mlx.mlx_ptr, hook_param->var->mlx.win_ptr, hook_param->var->mlx.img_ptr, 0, 0);
-	return(0);
+	mlx_put_image_to_window(hook_param->var->mlx.mlx_ptr,
+		hook_param->var->mlx.win_ptr, hook_param->var->mlx.img_ptr, 0, 0);
+	return (0);
 }
 
-int     ft_exit_hook(int x, int y, void *param)
+int		ft_exit_hook(int x, int y, void *param)
 {
 	t_hook_param *hook_param;
 

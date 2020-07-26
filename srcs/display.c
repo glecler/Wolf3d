@@ -14,10 +14,14 @@
 
 void	ft_menu(t_var *var, t_textures textures)
 {
-	ft_put_image(var, textures.main_menu, ft_mlx_img_dimensions(0, 0, 960, 600));
-	ft_put_image(var, textures.jouer, ft_mlx_img_dimensions(180, 260, 600, 50));
-	ft_put_image(var, textures.quitter, ft_mlx_img_dimensions(180, 320, 600, 50));
-	mlx_put_image_to_window(var->mlx.mlx_ptr, var->mlx.win_ptr, var->mlx.img_ptr, 0, 0);
+	ft_put_image(var, textures.main_menu,
+		ft_mlx_img_dimensions(0, 0, 960, 600));
+	ft_put_image(var, textures.jouer,
+		ft_mlx_img_dimensions(180, 260, 600, 50));
+	ft_put_image(var, textures.quitter,
+		ft_mlx_img_dimensions(180, 320, 600, 50));
+	mlx_put_image_to_window(var->mlx.mlx_ptr,
+		var->mlx.win_ptr, var->mlx.img_ptr, 0, 0);
 }
 
 void	ft_display(t_var *var, t_player *pl)

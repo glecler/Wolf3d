@@ -12,7 +12,7 @@
 
 #include "../includes/wolf.h"
 
-int				ft_launch_ray(t_player *player, t_var *var, double alpha,
+int		ft_launch_ray(t_player *player, t_var *var, double alpha,
 	double beta)
 {
 	double		dist[2];
@@ -60,7 +60,7 @@ void	ft_draw_floor(t_var *var, t_inter *inter)
 	}
 }
 
-void		ft_raycasting(t_var *var, t_player *player, t_textures textures)
+void	ft_raycasting(t_var *var, t_player *player, t_textures textures)
 {
 	t_inter	inter;
 	int		y_tmp;
@@ -72,7 +72,8 @@ void		ft_raycasting(t_var *var, t_player *player, t_textures textures)
 		while (inter.phw < SIZE_Y_2 + inter.hei / 2 && inter.phw < SIZE_Y - 1)
 		{
 			y_tmp = (double)inter.y_img / (double)inter.hei * BSD;
-			ft_get_rgb_from_img(var->wall_texture[var->texture_id] ,var->x_bloc, y_tmp, var->rgb);
+			ft_get_rgb_from_img(var->wall_texture[var->texture_id],
+				var->x_bloc, y_tmp, var->rgb);
 			ft_put_pixel_img(var, inter.plw, inter.phw, var->rgb);
 			inter.y_img++;
 			inter.phw++;
@@ -83,5 +84,6 @@ void		ft_raycasting(t_var *var, t_player *player, t_textures textures)
 		inter.plw++;
 	}
 	ft_put_image(var, textures.menu, ft_mlx_img_dimensions(750, 30, 179, 50));
-	mlx_put_image_to_window(var->mlx.mlx_ptr, var->mlx.win_ptr, var->mlx.img_ptr, 0, 0);
+	mlx_put_image_to_window(var->mlx.mlx_ptr, var->mlx.win_ptr,
+		var->mlx.img_ptr, 0, 0);
 }

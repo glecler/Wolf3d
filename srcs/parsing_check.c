@@ -21,23 +21,23 @@ void	ft_put_wall_around_the_map(int hei, int len, t_var *var)
 	y = 0;
 	while (var->map[0][x])
 	{
-		if (var->map[0][x] =='7' || var->map[hei - 1][x] =='7')
+		if (var->map[0][x] == '7' || var->map[hei - 1][x] == '7')
 			ft_error(6);
 		var->map[0][x] = '1';
-		var->map[hei - 1][x] ='1';
+		var->map[hei - 1][x] = '1';
 		x++;
 	}
 	while (y < hei)
 	{
-		if (var->map[y][0] =='7' || var->map[y][len * 2] =='7')
+		if (var->map[y][0] == '7' || var->map[y][len * 2] == '7')
 			ft_error(6);
-		var->map[y][0] ='1';
-		var->map[y][len * 2] ='1';
+		var->map[y][0] = '1';
+		var->map[y][len * 2] = '1';
 		y++;
 	}
 }
 
-int	ft_check_spawn(char *str) // only one'7', char 7
+int		ft_check_spawn(char *str)
 {
 	int i;
 	int spawn;
@@ -55,14 +55,14 @@ int	ft_check_spawn(char *str) // only one'7', char 7
 	return (0);
 }
 
-int	ft_check_space_between_digit(char *str)
+int		ft_check_space_between_digit(char *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (i % 2 != 0) // odd -> space
+		if (i % 2 != 0)
 		{
 			if (str[i] != ' ' && str[i] != '\n')
 				return (1);
@@ -77,17 +77,17 @@ int	ft_check_space_between_digit(char *str)
 	return (0);
 }
 
-void		ft_check_map(t_var *var, int ret, size_t nb_char, char *str)
+void	ft_check_map(t_var *var, int ret, size_t nb_char, char *str)
 {
-	if (ret == -1 || var->y_max == 0) // gnl failed or no lines
+	if (ret == -1 || var->y_max == 0)
 		ft_error(-1);
 	if (ft_check_spawn(str) == 1)
 		ft_error(3);
 	if (ft_check_space_between_digit(str) == 1)
 		ft_error(1);
-	var->x_max = (nb_char + 1) / 2; // size line
+	var->x_max = (nb_char + 1) / 2;
 	if (!(var->map = split(str, '\n')))
 		ft_error(2);
-	ft_put_wall_around_the_map(var->y_max, var->x_max, var); // close map
+	ft_put_wall_around_the_map(var->y_max, var->x_max, var);
 	free(str);
 }

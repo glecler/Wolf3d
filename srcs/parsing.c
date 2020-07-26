@@ -19,7 +19,7 @@ void	ft_init_var(t_var *var)
 	var->map = NULL;
 }
 
-int	ft_check_char(char *buff) // checks that every char is valid
+int		ft_check_char(char *buff)
 {
 	int i;
 
@@ -28,8 +28,8 @@ int	ft_check_char(char *buff) // checks that every char is valid
 		return (1);
 	while (buff[i])
 	{
-		if (buff[i] =='1' || buff[i] == '0' || buff[i] == ' ' ||\
-			buff[i] == '\n' || buff[i] =='7')
+		if (buff[i] == '1' || buff[i] == '0' || buff[i] == ' ' ||\
+			buff[i] == '\n' || buff[i] == '7')
 			i++;
 		else
 			return (1);
@@ -37,7 +37,7 @@ int	ft_check_char(char *buff) // checks that every char is valid
 	return (0);
 }
 
-void		ft_parsing_map(int fd, t_var *var)
+void	ft_parsing_map(int fd, t_var *var)
 {
 	char	*buff;
 	char	*str;
@@ -52,14 +52,14 @@ void		ft_parsing_map(int fd, t_var *var)
 	while ((ret = get_next_line(fd, &buff)))
 	{
 		if (token == 0 && (token = 1))
-			nb_char = ft_strlen(buff); // 1rst iter load size line
-		if (nb_char != ft_strlen(buff)) // check sizeline stays the same
+			nb_char = ft_strlen(buff);
+		if (nb_char != ft_strlen(buff))
 			ft_error(1);
-		if (ft_check_char(buff) == 1) 
+		if (ft_check_char(buff) == 1)
 			ft_error(1);
-		if (!(str = ft_strjoin_free_s1s2_newline(str, buff))) // concat str + buff
+		if (!(str = ft_strjoin_free_s1s2_newline(str, buff)))
 			ft_error(2);
-		var->y_max += 1; // line number
+		var->y_max += 1;
 	}
-	ft_check_map(var, ret, nb_char, str); // parse check
+	ft_check_map(var, ret, nb_char, str);
 }

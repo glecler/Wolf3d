@@ -20,7 +20,6 @@ void	ft_set_x_y_4(int *x_y, int x, int y, int a, int b)
 	x_y[3] = b;
 }
 
-
 void	ft_init_inter_variables(t_inter *inter, t_player *player)
 {
 	inter->beta = 30.00;
@@ -29,14 +28,15 @@ void	ft_init_inter_variables(t_inter *inter, t_player *player)
 	inter->alpha = player->angle;
 }
 
-void	ft_set_rgb(unsigned char *rgb, unsigned char r, unsigned char g, unsigned char b)
+void	ft_set_rgb(unsigned char *rgb, unsigned char r, unsigned char g,
+	unsigned char b)
 {
 	rgb[0] = r;
 	rgb[1] = g;
 	rgb[2] = b;
 }
 
-void		ft_init_a_b_alpha(t_pos *a, t_pos *b, double *alpha)
+void	ft_init_a_b_alpha(t_pos *a, t_pos *b, double *alpha)
 {
 	a->x = 10000;
 	a->y = 10000;

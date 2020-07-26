@@ -50,14 +50,15 @@ void		ft_free_var(t_var *var)
 	free(var->map);
 }
 
-void	ft_init_mlx(t_var *var)
+void		ft_init_mlx(t_var *var)
 {
 	if (!(var->mlx.mlx_ptr = mlx_init()))
 	{
 		ft_putstr("mlx_init error\n");
 		exit(0);
 	}
-	if (!(var->mlx.win_ptr = mlx_new_window(var->mlx.mlx_ptr, SIZE_X, SIZE_Y, "Wolf3D")))
+	if (!(var->mlx.win_ptr = mlx_new_window(var->mlx.mlx_ptr, SIZE_X, SIZE_Y,
+		"Wolf3D")))
 	{
 		ft_putstr("mlx_new_window error\n");
 		exit(0);
@@ -67,7 +68,8 @@ void	ft_init_mlx(t_var *var)
 		ft_putstr("mlx_new_image error\n");
 		exit(0);
 	}
-	if (!(var->mlx.img_addr = mlx_get_data_addr(var->mlx.img_ptr, &(var->mlx.bpp), &(var->mlx.size_line), &(var->mlx.endian))))
+	if (!(var->mlx.img_addr = mlx_get_data_addr(var->mlx.img_ptr,
+		&(var->mlx.bpp), &(var->mlx.size_line), &(var->mlx.endian))))
 	{
 		ft_putstr("mlx_get_data_addr error\n");
 		exit(0);
