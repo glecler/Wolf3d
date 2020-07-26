@@ -57,7 +57,7 @@ typedef struct s_mlx_img
 	char	*img_addr;
 	int		bpp;
 	int		endian;
-	int		size_line;
+	int		s_l;
 }				t_mlx_img;
 
 typedef struct s_mlx
@@ -68,7 +68,7 @@ typedef struct s_mlx
 	char	*img_addr;
 	int		bpp;
 	int		endian;
-	int		size_line;
+	int		s_l;
 	int		event_button[2];
 }				t_mlx;
 

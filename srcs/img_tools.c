@@ -19,7 +19,7 @@ int				ft_put_pixel_img(t_var *var, int x, int y, unsigned char *rgb)
 	cpy = var->mlx.img_addr;
 	if (rgb == 0)
 		return (0);
-	var->mlx.img_addr += y * var->mlx.size_line + x * 4;
+	var->mlx.img_addr += y * var->mlx.s_l + x * 4;
 	*(var->mlx.img_addr) = rgb[0];
 	*(var->mlx.img_addr + 1) = rgb[1];
 	*(var->mlx.img_addr + 2) = rgb[2];
@@ -58,19 +58,19 @@ void			ft_put_image(t_var *var, void *img_ptr, t_dimensions dim)
 	w = 0;
 	mlx_img.img_ptr = img_ptr;
 	if (!(mlx_img.img_addr = mlx_get_data_addr(mlx_img.img_ptr,
-		&(mlx_img.bpp), &(mlx_img.size_line), &(mlx_img.endian))))
+		&(mlx_img.bpp), &(mlx_img.s_l), &(mlx_img.endian))))
 		exit(0);
 	while (h < dim.height)
 	{
 		w = 0;
 		while (w < dim.width && (h + dim.y < SIZE_Y) && (w + dim.x < SIZE_X))
 		{
-			(var->mlx.img_addr)[(h + dim.y) * var->mlx.size_line + (w + dim.x)
-				* 4] = (mlx_img.img_addr)[h * mlx_img.size_line + w * 4];
-			(var->mlx.img_addr)[(h + dim.y) * var->mlx.size_line + (w + dim.x)
-				* 4 + 1] = (mlx_img.img_addr)[h * mlx_img.size_line + w * 4 + 1];
-			(var->mlx.img_addr)[(h + dim.y) * var->mlx.size_line + (w + dim.x)
-				* 4 + 2] = (mlx_img.img_addr)[h * mlx_img.size_line + w * 4 + 2];
+			(var->mlx.img_addr)[(h + dim.y) * var->mlx.s_l + (w + dim.x)
+				* 4] = (mlx_img.img_addr)[h * mlx_img.s_l + w * 4];
+			(var->mlx.img_addr)[(h + dim.y) * var->mlx.s_l + (w + dim.x)
+				* 4 + 1] = (mlx_img.img_addr)[h * mlx_img.s_l + w * 4 + 1];
+			(var->mlx.img_addr)[(h + dim.y) * var->mlx.s_l + (w + dim.x)
+				* 4 + 2] = (mlx_img.img_addr)[h * mlx_img.s_l + w * 4 + 2];
 			w++;
 		}
 		h++;

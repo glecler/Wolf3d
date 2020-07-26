@@ -69,7 +69,7 @@ void		ft_init_mlx(t_var *var)
 		exit(0);
 	}
 	if (!(var->mlx.img_addr = mlx_get_data_addr(var->mlx.img_ptr,
-		&(var->mlx.bpp), &(var->mlx.size_line), &(var->mlx.endian))))
+		&(var->mlx.bpp), &(var->mlx.s_l), &(var->mlx.endian))))
 	{
 		ft_putstr("mlx_get_data_addr error\n");
 		exit(0);
