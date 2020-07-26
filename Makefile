@@ -10,7 +10,8 @@ SRC 	=./srcs/main.c \
 			./srcs/mlx_tools.c \
 			./srcs/img_tools.c \
 			./srcs/img_load.c \
-			./srcs/tools.c
+			./srcs/tools.c \
+			./srcs/error.c
 
 FLAGS 	= -Wall -Wextra -Wno-nullability-completeness
 CC		= clang

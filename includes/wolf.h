@@ -150,28 +150,29 @@ void			ft_set_x_y(int *x_y, int x, int y);
 void			ft_init_inter_variables(t_inter *inter, t_player *player);
 void			ft_init_a_b_alpha(t_pos *a, t_pos *b, double *alpha);
 void			ft_motion_menu_zero(int x, int y, t_hook_param *hook_param);
-
-/*
-** display_tool_2.c
-*/
-void			ft_intersec_1(t_pos *a, t_var *var, t_player *player, double alpha);
-void			ft_intersec_2(t_pos *b, t_var *var, t_player *player, double alpha);
-void			ft_calc_dist(double *dist, t_player *player, t_pos a, t_pos b);
-int				ft_launch_ray(t_player *pl, t_var *var, double al, double beta);
-double			ft_dist_0_1(t_var *var, double alpha, double beta, t_pos b);
-double			ft_dist_1_0(t_var *var, double alpha, double beta, t_pos a);
-
-/*
-** display_tool.c
-*/
-
-void			ft_calc_hei_column(t_var *var, t_inter *inter, t_player *player);
 void			ft_set_rgb(unsigned char *rgb, unsigned char r, unsigned char g, unsigned char b);
+
+/*
+** raycasting.c
+*/
+
+int				ft_launch_ray(t_player *pl, t_var *var, double al, double beta);
+void			ft_calc_hei_column(t_var *var, t_inter *inter, t_player *player);
 void			ft_draw_floor(t_var *var, t_inter *inter);
 void			ft_raycasting(t_var *var, t_player *player, t_textures textures);
 
 /*
-** menu.c
+** raycasting_tool.c
+*/
+
+void			ft_intersec_1(t_pos *a, t_var *var, t_player *player, double alpha);
+void			ft_intersec_2(t_pos *b, t_var *var, t_player *player, double alpha);
+void			ft_calc_dist(double *dist, t_player *player, t_pos a, t_pos b);
+double			ft_dist_0_1(t_var *var, double alpha, double beta, t_pos b);
+double			ft_dist_1_0(t_var *var, double alpha, double beta, t_pos a);
+
+/*
+** display.c
 */
 
 void			ft_display(t_var *var, t_player *pl);
@@ -181,9 +182,11 @@ void			ft_menu(t_var *var, t_textures s);
 ** mlx_tools.c
 */
 
-void			ft_put_image(t_var *var, void *img_ptr, t_dimensions dim);
-int				ft_put_pixel_img(t_var *var, int x, int y, unsigned char *rgb);
-int				ft_get_rgb_from_img(t_mlx_img mlx_img, int x, int y, unsigned char *rgb);
+void			ft_free_xpm(t_var *var, t_textures textures);
+void			ft_mlx_erase_screen(t_var *var);
+void			ft_free_var(t_var *var);
+void			ft_init_mlx(t_var *var);
+void			ft_clean_quit(t_textures s, t_var *var, t_player *pl);
 
 /*
 ** play.c
@@ -218,20 +221,15 @@ int				ft_get_key_release(int key, t_hook_param *hook_param);
 void			ft_error(int i);
 
 /*
-** texture.c
+** img_load.c
 */
 
 void			ft_load_texture(t_var *var);
 void			ft_load_xpm(t_var *var, t_textures *s);
+void			ft_load_tex_addr(t_var *var);
 
 /*
-** ft_init_mlx.c
-*/
-
-void			ft_init_mlx(t_var *var);
-
-/*
-** parse_check.c
+** parsing_check.c
 */
 
 int				ft_check_space_between_digit(char *str);
@@ -240,15 +238,12 @@ void			ft_put_wall_around_the_map(int hei, int len, t_var *var);
 void			ft_check_map(t_var *var, int ret, size_t nb_char, char *str);
 
 /*
-** mlx_tools.c
+** img_tools.c
 */
 
-void			ft_free_xpm(t_var *var, t_textures s);
 t_dimensions	ft_mlx_img_dimensions(int x, int y, int w, int h);
-void			ft_mlx_erase_screen(t_var *var);
-void			ft_free_var(t_var *var);
-void			ft_clean_quit(t_textures s, t_var *v, t_player *pl);
-
-
+void			ft_put_image(t_var *var, void *img_ptr, t_dimensions dim);
+int				ft_put_pixel_img(t_var *var, int x, int y, unsigned char *rgb);
+int				ft_get_rgb_from_img(t_mlx_img mlx_img, int x, int y, unsigned char *rgb);
 
 #endif

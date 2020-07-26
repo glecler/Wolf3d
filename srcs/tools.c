@@ -43,7 +43,6 @@ void	ft_init_a_b_alpha(t_pos *a, t_pos *b, double *alpha)
 	*alpha = *alpha * RAD;
 }
 
-
 void	ft_motion_menu_zero(int x, int y, t_hook_param *hook_param)
 {
 	if (x >= 750 && x <= 929 && y >= 30 && y <= 80)
@@ -52,25 +51,4 @@ void	ft_motion_menu_zero(int x, int y, t_hook_param *hook_param)
 	else
 		ft_put_image(hook_param->var, hook_param->textures.menu,
 			ft_mlx_img_dimensions(750, 30, 179, 50));
-}
-
-void	ft_error(int error_code)
-{
-	if (error_code == 1)
-		ft_putstr("error: wrong character in map file\n");
-	else if (error_code == 2)
-		ft_putstr("error: malloc failed\n");
-	else if (error_code == 3)
-		ft_putstr("error: bad spawn #\n");
-	else if (error_code == 4)
-		ft_putstr("error: empty file\n");
-	else if (error_code == 5)
-		ft_putstr("error: file not found\n");
-	else if (error_code == 6)
-		ft_putstr("error: bad spawn\n");
-	else if (error_code == 7)
-		ft_putstr("error : map is not valid\n");
-	else
-		ft_putstr("error\n");
-	exit(0);
 }
